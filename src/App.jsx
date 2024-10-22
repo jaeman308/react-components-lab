@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import WeatherForecasts from './components/WeatherForecast/WeatherForecasts.jsx';
 
 const App = () => {
   const weatherForecasts = [
@@ -9,6 +10,7 @@ const App = () => {
       imgAlt: 'sun icon',
       conditions: 'sunny',
       time: 'Morning',
+      id:1,
     },
     {
       day: 'Tue',
@@ -16,6 +18,7 @@ const App = () => {
       imgAlt: 'moon icon',
       conditions: 'clear',
       time: 'Night',
+      id:2,
     },
     {
       day: 'Wed',
@@ -23,6 +26,7 @@ const App = () => {
       imgAlt: 'clouds with lightning icon',
       conditions: 'stormy',
       time: 'All Day',
+      id:3,
     },
     {
       day: 'Thu',
@@ -30,6 +34,7 @@ const App = () => {
       imgAlt: 'sun overcast by clouds icon',
       conditions: 'overcast',
       time: 'Evening',
+      id:4,
     },
     {
       day: 'Fri',
@@ -37,11 +42,19 @@ const App = () => {
       imgAlt: 'moon overcast by clouds icon',
       conditions: 'cloudy',
       time: 'Night',
+      id:5,
     },
   ];
   
   return (
-    <h1>Hello world!</h1>
+    <>
+    <h1>Local Weather</h1>
+    <section>
+      {weatherForecasts.map((weatherForecast) => (
+        <WeatherForecasts key={weatherForecast.id} weatherForecast={weatherForecast}/>
+      ))}
+    </section>
+  </>
   );
 }
 
